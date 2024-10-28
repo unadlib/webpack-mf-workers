@@ -1,0 +1,23 @@
+{
+  "name": "webpack-mf-workers",
+  "scripts": {
+    "build:host": "webpack --node-env=production --progress --config ./host/webpack.host-config.js",
+    "build:module": "webpack --node-env=production --progress --config ./module/webpack.module-config.js",
+    "serve:host": "npx http-server ./host/build -p 3000",
+    "serve:module": "npx http-server ./module/build -p 3001",
+    "start:host": "npm run build:host && npm run serve:host",
+    "start:module": "npm run build:module && npm run serve:module",
+    "clean": "rimraf ./host/build ./module/build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grzesiek-ds/webpack-mf-workers.git"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "5.5.0",
+    "rimraf": "^6.0.1",
+    "webpack": "5.74.0",
+    "webpack-cli": "4.10.0"
+  },
+  "license": "MIT"
+}
